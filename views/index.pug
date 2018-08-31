@@ -1,5 +1,20 @@
 html
   head
     title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
   body
-    h1= message
+    div(class='container')
+      div(class='row')
+        each table, i in tables
+          div(class='col-4 py-5')
+            h5 #{table.name}
+            table(class='table table-bordered')
+              thead
+                tr
+                  th Column
+                  th Type
+              tbody
+                each field, j in table.attributes
+                  tr
+                    td #{field.name}
+                    td #{field.type}
